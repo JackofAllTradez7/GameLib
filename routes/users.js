@@ -7,7 +7,7 @@ var router = express.Router();
 require("../models/User");
 var User = mongoose.model("users")
 
-// dont try to post here niggaaaaaaaa
+// dont try to post here 
 
 router.get("/login", function(req, res)
 {
