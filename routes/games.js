@@ -20,6 +20,30 @@ router.get("/games", ensureAuthenticated, function(req, res)
     })
 });
 
+router.get("/publicgames", function(req, res)
+{
+    Game.find().then(function(games)
+    {
+        games.sort(function(a,b)
+        {
+            if(a.title.toLowerCase() < b.title.toLowerCase())
+            {
+                return -1;
+            }
+            if(a.title.toLowerCase() > b.title.toLowerCase())
+            {
+                return 1;
+            }
+            return 0
+            
+        })
+        res.render("gameentry/publiclist",
+        {
+            games:games
+        })
+    })
+})
+
 // more week 4 shenanigans
 router.get("/gameentry/gameentryadd", ensureAuthenticated, function(req, res)
 {

@@ -8,9 +8,9 @@ module.exports = function(passport)
 {
     passport.use(new LocalStrategy({usernameField: "email"}, function(email, password, done)
     {
-        console.log("bro who the fuck is this, oh its ")
+        console.log("New User Incoming: ")
         console.log(email)
-        console.log("and their password is ")
+        console.log("User Password: ")
         console.log(password)
         User.findOne(
             {
@@ -19,7 +19,7 @@ module.exports = function(passport)
             {
                 if(!user)
                 {
-                    return done(null, false, {message:"Literally who the fuck is this"})
+                    return done(null, false, {message:"Invalid User"})
                 }
 
                 //passwords
@@ -32,7 +32,7 @@ module.exports = function(passport)
                     }
                     else
                     {
-                        return done(null, false, {message:"lmao wrong password retard"})
+                        return done(null, false, {message:"Incorrect Password"})
                     }
                 })
             })

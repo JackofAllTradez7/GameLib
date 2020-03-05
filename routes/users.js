@@ -38,7 +38,7 @@ router.post("/register", function(req,res)
 
     if(req.body.password != req.body.password2)
     {
-        errors.push({text:"Passwords dont match retard"})
+        errors.push({text:"Passwords dont match"})
     }
     if(req.body.password.length < 4)
     {

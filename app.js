@@ -25,7 +25,7 @@ mongoose.connect(db.mongoURI,
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(function(){
-    console.log("after you mongo")
+    console.log("MongoDB connected")
 }).catch(function(err)
 {
     console.log(err);
@@ -92,5 +92,5 @@ var port = process.env.PORT || 5000
 
 app.listen(port, function()
 {
-    console.log("5000 gamers running");
+    console.log("Server running on port 5000");
 })
